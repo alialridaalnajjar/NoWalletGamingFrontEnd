@@ -1,2 +1,2 @@
 Backend 80%
-FrontEnd only god knows were we are maybe 30%
+FrontEnd only god knows where we are maybe 30%
