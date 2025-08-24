@@ -1,0 +1,81 @@
+.Slider {
+  color: inherit;
+  transition: color 0.3s;
+  position: relative;
+  display: inline-block;
+}
+.Slider:hover {
+  background: linear-gradient(90deg, teal 50%, transparent 100%);
+  background-size: 200% 100%;
+  background-position: left bottom;
+
+  background-clip: text;
+  color: transparent;
+  transition: background-position 0.5s ease;
+}
+
+
+.gradient-border-container {
+  position: relative;
+  background: linear-gradient(45deg, #14b8a6, transparent, #14b8a6, transparent);
+  background-size: 400% 400%;
+  border-radius: 12px; 
+  padding: 2px;
+  animation: gradientShift 8s ease infinite;
+}
+
+.gradient-border-container .border-cycle {
+  margin: 0; 
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.flexItCol{
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1.25rem;
+  padding-top: 3rem;
+
+
+}
+
+.dropdown-menu {
+  transform-origin: top;
+  animation: slideDown 0.4s ease forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.dropdown-menu-exit {
+  transform-origin: top;
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
