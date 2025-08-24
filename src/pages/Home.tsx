@@ -1,13 +1,16 @@
+import React from "react";
 import Games from "../components/Games";
 import NavBar from "../components/NavBar";
-export default function Home() {
+import ScrollUp from "../utils/ScrollUp";
+export default function Home({showDropList, setShowDropList}: {showDropList: boolean, setShowDropList: React.Dispatch<React.SetStateAction<boolean>>}) {
+
   return (
     <>
+    <ScrollUp />
       <div className="bg-neutral-900 h-screen">
-        <NavBar />
+        <NavBar setShowDropList={setShowDropList} showDropList={showDropList} />
         <Games />
       </div>
     </>
   );
 }
-  
