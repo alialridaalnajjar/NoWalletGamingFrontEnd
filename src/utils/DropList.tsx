@@ -18,7 +18,7 @@ export default function DropList({
       { label: "Home", icon: Home, link: "/" },
       { label: "NWG.io", icon: Globe, link: "" },
       { label: "All Games", icon: Gamepad2, link: "" },
-      { label: "Contributors", icon: Users, link: "" },
+      { label: "Contributors", icon: Users, link: "/contributers" },
       { label: "NWG API", icon: MoreHorizontal, link: "/api-docs" },
     ];
 
@@ -29,7 +29,7 @@ export default function DropList({
         <div className="px-4 py-2">
           {menuItems.map((item, index) => {
             return (
-              <Link to={item.link}>
+              <Link to={item.link} key={index}>
                 <div
                   onClick={() => setShowDropList(false)}
                   key={index}

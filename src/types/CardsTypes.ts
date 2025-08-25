@@ -11,3 +11,20 @@ export type cardTypes = {
   release_date: string;
   freetogame_profile_url?: string;
 };
+
+
+export type headerProps ={
+  showDropList: boolean;
+  setShowDropList: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export type contributersType = {
+    name: string;
+    github?: string;
+    img: string;
+    linkedin?: string;
+    occupation: string;
+    university?: string;
+    universityLink?: string;
+    age?: string | number;
+  };

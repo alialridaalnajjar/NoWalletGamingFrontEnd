@@ -1,14 +1,11 @@
 import { Search } from "lucide-react";
-import React from "react";
+import type { headerProps } from "../types/CardsTypes";
 import Featured from "../utils/Featured";
 import Header from "./Header";
 export default function NavBar({
   showDropList,
   setShowDropList,
-}: {
-  showDropList: boolean;
-  setShowDropList: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+}: headerProps) {
   return (
     <div className="pt-15 w-full " >
       <Header showDropList={showDropList} setShowDropList={setShowDropList}/>

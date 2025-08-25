@@ -1,8 +1,9 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Api from "./pages/Api";
 import React from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import Api from "./pages/Api";
+import Contributer from "./pages/Contributer";
+import Home from "./pages/Home";
 
 function App() {
   const [showDropList, setShowDropList] = React.useState(false);
@@ -11,6 +12,15 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route
+            path="/contributers"
+            element={
+              <Contributer
+                setShowDropList={setShowDropList}
+                showDropList={showDropList}
+              />
+            }
+          />
           <Route
             path="/"
             element={

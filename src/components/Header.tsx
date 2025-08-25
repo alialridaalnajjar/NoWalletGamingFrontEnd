@@ -10,10 +10,10 @@ export default function Header({
   showDropList: boolean;
 }) {
   const rightSidedItems = [
-    { name: "NWG.io", path: "nwg-game" },
-    { name: "All Games", path: "all-games" },
-    { name: "Contributers", path: "contributors" },
-    { name: "NWG API", path: "api-docs" },
+    { name: "NWG.io", path: "/"  },
+    { name: "All Games", path: "/" },
+    { name: "Contributers", path: "/contributers" },
+    { name: "NWG API", path: "/api-docs" },
   ];
 
   return (

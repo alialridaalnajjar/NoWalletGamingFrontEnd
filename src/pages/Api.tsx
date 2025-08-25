@@ -2,8 +2,9 @@ import React from "react";
 import { Copy, Check, Code, Database, Globe, ArrowRight, ExternalLink } from 'lucide-react';
 import Header from "../components/Header";
 import ScrollUp from "../utils/ScrollUp";
+import type { headerProps } from "../types/CardsTypes";
 
-export default function Api({showDropList, setShowDropList}: {showDropList: boolean, setShowDropList: React.Dispatch<React.SetStateAction<boolean>>}) {
+export default function Api({showDropList, setShowDropList}: headerProps) {
   const [copiedEndpoint, setCopiedEndpoint] = React.useState<string | null>(null);
 
   const copyToClipboard = (text: string, endpoint: string) => {
