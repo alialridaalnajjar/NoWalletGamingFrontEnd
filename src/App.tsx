@@ -4,6 +4,7 @@ import "./App.css";
 import Api from "./pages/Api";
 import Contributer from "./pages/Contributer";
 import Home from "./pages/Home";
+import NWG from "./pages/NWG";
 
 function App() {
   const [showDropList, setShowDropList] = React.useState(false);
@@ -12,6 +13,7 @@ function App() {
     <>
       <Router>
         <Routes>
+          <Route path="/nwg.io" element={<NWG/>}/>
           <Route
             path="/contributers"
             element={

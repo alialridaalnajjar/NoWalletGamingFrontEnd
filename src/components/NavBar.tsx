@@ -19,7 +19,7 @@ export default function NavBar({ showDropList, setShowDropList }: headerProps) {
     .filter((game) =>
       game.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    .slice(0, 3);
+    .slice(0,3);
 
   return (
     <div className="pt-15 w-full ">
@@ -46,13 +46,15 @@ export default function NavBar({ showDropList, setShowDropList }: headerProps) {
           />
         </div>
       </div>
-      <div>
+      <div className="flex flex-col justify-center items-center mr-20">
         {filteredGames.length > 0 && searchTerm.length > 2 ? (
-          filteredGames.map((game) => (
-            <div className="z-60 inset-0 backdrop-blur-xs fixed  pt-25  h-100vh lg:pt-20">
-              <SearchedGamesCard key={game.id} {...game} />
+          <div className="fixed inset-0 top-20 z-60 backdrop-blur-sm">
+            <div className="flex flex-col gap-4 pt-4 max-w-3xl mx-auto  h-100vh">
+              {filteredGames.map((game) => (
+                <SearchedGamesCard key={game.id} {...game} />
+              ))}
             </div>
-          ))
+          </div>
         ) : filteredGames.length === 0 && searchTerm.length > 2 ? (
           <div className="text-white/60 text-center mt-4">
             No games found matching "{searchTerm}"

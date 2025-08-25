@@ -16,8 +16,8 @@ export default function DropList({
   const menuItems: { label: string; icon: React.ElementType; link: string }[] =
     [
       { label: "Home", icon: Home, link: "/" },
-      { label: "NWG.io", icon: Globe, link: "" },
-      { label: "All Games", icon: Gamepad2, link: "" },
+      { label: "NWG.io", icon: Globe, link: "/nwg.io" },
+      { label: "All Games", icon: Gamepad2, link: "/" },
       { label: "Contributors", icon: Users, link: "/contributers" },
       { label: "NWG API", icon: MoreHorizontal, link: "/api-docs" },
     ];

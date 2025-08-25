@@ -63,7 +63,7 @@ export default function SearchedGamesCard({
             </div>
           </div>
 
-          {/* Developer & Release Date */}
+          {/* Developer &&^&&^ Release Date */}
           <div className="flex items-center gap-4 text-xs">
             <span className="text-neutral-500 group-hover:text-neutral-400 transition-colors duration-300">
               by{" "}
@@ -97,7 +97,7 @@ export default function SearchedGamesCard({
 
       <div className="absolute bottom-0 left-0 w-0 h-px bg-gradient-to-r from-cyan-400 via-teal-400 to-cyan-400 group-hover:w-full transition-all duration-700 delay-100"></div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/3 to-transparent  translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></div>
     </div>
   );
 }
