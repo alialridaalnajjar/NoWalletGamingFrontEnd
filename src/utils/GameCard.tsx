@@ -25,9 +25,8 @@ export default function GameCard({
   };
 
   return (
-    <>
-      <div className="w-full h-1/4 flex flex-col justify-center items-center p-3">
-        <div className="relative overflow-hidden w-full lg:w-1/2">
+      <div className=" lg:w-1/4 h-full flex flex-col justify-center items-center p-3 lg:pt-12 ">
+        <div className="relative overflow-hidden w-full lg:w-full  ">
           <img
             src={thumbnail || "/placeholder.svg"}
             alt={title}
@@ -36,7 +35,7 @@ export default function GameCard({
           <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-t-xl" />
         </div>
 
-        <div className="bg-neutral-800 flex flex-col justify-center items-start pl-4 pr-4 pb-4 rounded-b-xl w-full lg:w-1/2 space-y-3">
+        <div className="bg-neutral-800 flex flex-col justify-center items-start pl-4 pr-4 pb-4 rounded-b-xl w-full lg:w-full space-y-3">
           <div className="flex flex-row items-center justify-between w-full mt-3">
             <div className="flex items-center gap-2">
               {getPlatformIcon(platform)}
@@ -90,6 +89,5 @@ export default function GameCard({
           </button>
         </div>
       </div>
-    </>
   );
 }

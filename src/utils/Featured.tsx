@@ -7,7 +7,7 @@ export default function Featured() {
   return (
     <>
       {featured && (
-        <div className="mt-5 lg:mt-20 relative bg-gradient-to-r from-neutral-900 to-neutral-800 border border-neutral-700 rounded-lg p-3 mx-4 my-2 shadow-lg">
+        <div className="lg:w-10/11 w-10/11 lg:mt-5 relative bg-gradient-to-r from-neutral-900 to-neutral-800 border border-neutral-700 rounded-lg p-3 mx-5 lg:mx-0 my-2 shadow-lg">
           <button
             onClick={() => setFeatured(false)}
             className="absolute top-2 right-2 text-neutral-400 hover:text-white transition-colors duration-200 p-1 hover:bg-neutral-700 rounded-full"

@@ -1,5 +1,7 @@
+import ALiImg from "../assets/resized-image.jpeg";
 import Header from "../components/Header";
-import ALiImg from "../assets/AliAlNajjarPFP.jpg"
+import type { contributersType, headerProps } from "../types/CardsTypes";
+import ContributerCard from "../utils/ContributerCard";
 export default function Contributer({
   showDropList,
   setShowDropList,
@@ -29,12 +31,12 @@ export default function Contributer({
                   img={contributer.img}
                   linkedin={contributer.linkedin}
                   occupation={contributer.occupation}
-                  university={contributer.university}/>
+                  university={contributer.university}
+                  age={contributer?.age}/>
             
         ))}
       </div>
     </div>
   );
 }
-import type { contributersType, headerProps } from "../types/CardsTypes";import ContributerCard from "../utils/ContributerCard";
 

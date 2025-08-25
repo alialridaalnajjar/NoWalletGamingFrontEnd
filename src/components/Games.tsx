@@ -1,6 +1,7 @@
 import React from "react";
 import type { cardTypes } from "../types/CardsTypes";
 import GameCard from "../utils/GameCard";
+import Featured from "../utils/Featured";
 
 export default function Games() {
   const [data, setData] = React.useState<cardTypes[]>([]);
@@ -13,23 +14,25 @@ export default function Games() {
   }, []);
 
   return (
-    <div className="w-full  h-auto bg-neutral-900 text-white pt-5 ">
-      {data.map((game) => (
-        <GameCard
-          key={game.id}
-          id={game.id}
-          title={game.title}
-          thumbnail={game.thumbnail}
-          short_description={game.short_description}
-          game_url={game.game_url}
-          genre={game.genre}
-          platform={game.platform}
-          publisher={game.publisher}
-          developer={game.developer}
-          release_date={game.release_date}
-         
-        />
-      ))}
+    <div className="w-full  h-auto bg-neutral-900 text-white pt-5 flex flex-col lg:pr-6 items-end jusstify-around ">
+      <Featured />
+      <div className="flex flex-row items-center justify-center flex-wrap lg:w-10/11 ">
+        {data.map((game) => (
+          <GameCard
+            key={game.id}
+            id={game.id}
+            title={game.title}
+            thumbnail={game.thumbnail}
+            short_description={game.short_description}
+            game_url={game.game_url}
+            genre={game.genre}
+            platform={game.platform}
+            publisher={game.publisher}
+            developer={game.developer}
+            release_date={game.release_date}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -17,7 +17,7 @@ export default function ContributerCard({
         <img
           src={img || "/placeholder.svg"}
           alt={name}
-          className="rounded-t-xl w-fit h-100 transition-transform duration-500 hover:scale-110 object-cover lg:w-full w-full lg:object-cover lg:h-full "
+          className="rounded-t-xl h-100 transition-transform duration-500 hover:scale-110 object-cover lg:w-full w-full lg:object-cover lg:h-full "
         />
         <div className="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-t-xl" />
       </div>
@@ -41,7 +41,7 @@ export default function ContributerCard({
 
         <div className="flex items-center gap-2 text-neutral-400">
           <Calendar size={14} className="text-teal-400" />
-          <h2 className="text-sm font-semibold">{age}18</h2>
+          <h2 className="text-sm font-semibold">{age}y/o</h2>
         </div>
 
         <div className="pt-2 border-t border-neutral-700 w-full">

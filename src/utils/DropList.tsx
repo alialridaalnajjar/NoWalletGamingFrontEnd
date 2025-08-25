@@ -23,7 +23,7 @@ export default function DropList({
     ];
 
   return (
-    <div className="dropdown-menu fixed inset-0 backdrop-blur-sm mt-16 z-50">
+    <div className="dropdown-menu fixed inset-0 backdrop-blur-sm mt-11 z-90">
       <div className="absolute inset-0 bg-black/20"></div>
       <div className="relative bg-neutral-900/95 border-b border-neutral-700 shadow-xl">
         <div className="px-4 py-2">
