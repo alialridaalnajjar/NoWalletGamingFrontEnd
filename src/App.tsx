@@ -13,7 +13,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/nwg.io" element={<NWG/>}/>
+          <Route path="/nwg.io" element={<NWG setShowDropList={setShowDropList} showDropList={showDropList}/>}/>
           <Route
             path="/contributers"
             element={

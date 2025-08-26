@@ -1,9 +1,126 @@
+import React from "react";
+import Header from "../components/Header";
+import type { headerProps } from "../types/CardsTypes";
+import NWGCard from "../utils/NWGCard";
 
-export default function NWG() {
+export default function NWG({ setShowDropList, showDropList }: headerProps) {
+  const [guess, setGuess] = React.useState<
+    { title: string; thumbnail: string }[]
+  >([]);
+  const [currentGame, setCurrentGame] = React.useState<{
+    title: string;
+    thumbnail: string;
+  }>({ title: "", thumbnail: "" });
+  const [wonStatus, setWonStatus] = React.useState<boolean>(false);
+  const [roundEnd, setRoundEnd] = React.useState<boolean>(false);
+  const [userGuess, setUserGuess] = React.useState<string>("");
+  const [attempts, setAttempts] = React.useState(5);
+
+  const blurrLevels = [
+    { level: 5, blurr: `blur-xl` },
+    { level: 4, blurr: `blur-lg` },
+    { level: 3, blurr: `blur-md` },
+    { level: 2, blurr: `blur-sm` },
+    { level: 1, blurr: `blur-xs` },
+    { level: 0, blurr: `blur-none` },
+  ];
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://no-wallet-gaming-back-end.vercel.app/"
+        );
+        const data = await response.json();
+        setGuess(data);
+        const randomIndex = Math.floor(Math.random() * data.length);
+        setCurrentGame(data[randomIndex]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleWinCheck = (comparatorOne: string, comparatorTwo: string) => {
+    if (attempts <= 0) return; // Early return if no attempts left
+
+    if (comparatorOne.toLowerCase() === comparatorTwo.toLowerCase()) {
+      setRoundEnd(true);
+      setWonStatus(true);
+    } else {
+      if (attempts <= 1) {
+        setRoundEnd(true);
+      }
+      setAttempts((p) => p - 1);
+    }
+    setUserGuess("");
+  };
+
+  const startRound = () => {
+    setRoundEnd(false);
+    setWonStatus(false);
+    setAttempts(5);
+    setUserGuess("");
+    const randomIndex = Math.floor(Math.random() * guess.length);
+    setCurrentGame(guess[randomIndex]);
+  };
+
   return (
-    <div>
-        
+    <>
+      <Header
+        searchTerm=""
+        setSearchTerm={() => {}}
+        setShowDropList={setShowDropList}
+        showDropList={showDropList}
+      />
+      <div className=" min-h-screen bg-neutral-900 pt-40">
+        {currentGame && currentGame.title && (
+          <div className="container mx-auto px-4">
+            <NWGCard
+              title={currentGame.title}
+              thumbnail={currentGame.thumbnail}
+              blur={blurrLevels[5 - attempts].blurr}
+            />
 
-    </div>
-  )
+            <div className="text-white flex flex-col items-center justify-center gap-3 mt-4">
+              <h1>Guess you have {attempts} attempts left!</h1>
+              <input
+                type="text"
+                value={userGuess}
+                placeholder="Game"
+                className="border-teal-300 border-2 rounded-2xl p-2 text-white"
+                onChange={(e) => setUserGuess(e.target.value)}
+              />
+              <button
+                onClick={() => handleWinCheck(userGuess, currentGame.title)}
+                disabled={attempts <= 0 || roundEnd}
+                className={`px-4 py-2 rounded-xl transition-colors ${
+                  attempts <= 0 || roundEnd
+                    ? "bg-neutral-600 cursor-not-allowed"
+                    : "bg-teal-600 hover:bg-teal-700"
+                }`}
+              >
+                Give It a check
+              </button>
+
+              {roundEnd && (
+                <button
+                  onClick={startRound}
+                  className="bg-teal-600 px-4 py-2 rounded-xl hover:bg-teal-700 transition-colors"
+                >
+                  Start New Round
+                </button>
+              )}
+
+              {wonStatus && (
+                <div className="text-teal-400 text-xl">You Won! 🎉</div>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </>
+  );
 }
