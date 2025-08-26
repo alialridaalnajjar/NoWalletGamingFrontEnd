@@ -5,12 +5,13 @@ import NWGCard from "../utils/NWGCard";
 
 export default function NWG({ setShowDropList, showDropList }: headerProps) {
   const [guess, setGuess] = React.useState<
-    { title: string; thumbnail: string }[]
+    { title: string; thumbnail: string,  developer: string; }[]
   >([]);
   const [currentGame, setCurrentGame] = React.useState<{
     title: string;
     thumbnail: string;
-  }>({ title: "", thumbnail: "" });
+      developer: string;
+  }>({ title: "", thumbnail: "",developer:"" });
   const [wonStatus, setWonStatus] = React.useState<boolean>(false);
   const [roundEnd, setRoundEnd] = React.useState<boolean>(false);
   const [userGuess, setUserGuess] = React.useState<string>("");
@@ -44,11 +45,14 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
   }, []);
 
   const handleWinCheck = (comparatorOne: string, comparatorTwo: string) => {
-    if (attempts <= 0) return; // Early return if no attempts left
+    if (attempts <= 0) return; // Early return if no attempts leftt
 
-    if (comparatorOne.toLowerCase() === comparatorTwo.toLowerCase()) {
+    if (
+      comparatorOne.toLowerCase().trim() === comparatorTwo.toLowerCase().trim()
+    ) {
       setRoundEnd(true);
       setWonStatus(true);
+      
     } else {
       if (attempts <= 1) {
         setRoundEnd(true);
@@ -67,6 +71,12 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
     setCurrentGame(guess[randomIndex]);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && roundEnd && attempts > 0) {
+      handleWinCheck(userGuess, currentGame.title);
+    }
+  };
+
   return (
     <>
       <Header
@@ -79,8 +89,10 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
         {currentGame && currentGame.title && (
           <div className="container mx-auto px-4">
             <NWGCard
+              showGameName={roundEnd}
               title={currentGame.title}
               thumbnail={currentGame.thumbnail}
+              studio={currentGame.developer}
               blur={blurrLevels[5 - attempts].blurr}
             />
 
@@ -92,6 +104,8 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
                 placeholder="Game"
                 className="border-teal-300 border-2 rounded-2xl p-2 text-white"
                 onChange={(e) => setUserGuess(e.target.value)}
+                onKeyDown={handleKeyDown}
+                disabled={roundEnd || attempts <= 0}
               />
               <button
                 onClick={() => handleWinCheck(userGuess, currentGame.title)}
