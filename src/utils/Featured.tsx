@@ -1,5 +1,6 @@
+import { Gamepad2, Star, X } from "lucide-react";
 import React from "react";
-import { X, Star, Gamepad2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Featured() {
   const [featured, setFeatured] = React.useState(true);
@@ -36,12 +37,13 @@ export default function Featured() {
                 - handpicked by developers!
               </p>
             </div>
-
-            <div className="flex-shrink-0">
-              <button className="bg-teal-500 hover:bg-teal-600 text-white px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-200 shadow-md">
-                Explore
-              </button>
-            </div>
+            <Link to="/dev-choice">
+              <div className="flex-shrink-0">
+                <button className="bg-teal-500 hover:bg-teal-600 text-white px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-200 shadow-md">
+                  Explore
+                </button>
+              </div>
+            </Link>
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-teal-500 to-transparent opacity-50"></div>

@@ -1,4 +1,7 @@
+import type React from "react";
+
 import {
+  ChevronDown,
   ChevronRight,
   Gamepad2,
   Globe,
@@ -6,18 +9,22 @@ import {
   MoreHorizontal,
   Users,
 } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import ExpandedDropList from "../components/ExpandedDropList";
 
 export default function DropList({
   setShowDropList,
 }: {
   setShowDropList: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const [showMore, setShowMore] = useState(false);
+
   const menuItems: { label: string; icon: React.ElementType; link: string }[] =
     [
       { label: "Home", icon: Home, link: "/" },
-      { label: "NWG.io", icon:  Gamepad2, link: "/nwg.io" },
-      { label: "All Games", icon:Globe, link: "/" },
+      { label: "NWG.io", icon: Gamepad2, link: "/nwg.io" },
+      { label: "All Games", icon: Globe, link: "/" },
       { label: "Contributors", icon: Users, link: "/contributers" },
       { label: "NWG API", icon: MoreHorizontal, link: "/api-docs" },
     ];
@@ -52,6 +59,27 @@ export default function DropList({
               </Link>
             );
           })}
+
+          <div
+            onClick={() => setShowMore(!showMore)}
+            className="flex items-center justify-between px-4 py-4 text-white font-medium hover:bg-neutral-800/50 transition-colors duration-200 cursor-pointer group border-b border-neutral-800/50"
+          >
+            <div className="flex items-center gap-3">
+              <MoreHorizontal
+                size={20}
+                className="text-teal-400 group-hover:text-teal-300 transition-colors"
+              />
+              <span className="text-base group-hover:text-teal-100 transition-colors">
+                More
+              </span>
+            </div>
+            <ChevronDown
+              size={16}
+              className="text-neutral-500 group-hover:text-teal-400 transition-colors"
+            />
+          </div>
+
+          {showMore && <ExpandedDropList setShowDropList={setShowDropList} />}
         </div>
       </div>
     </div>

@@ -1,16 +1,13 @@
 import {
-    BarChart3,
-    ChevronDown,
-    ChevronRight,
-    ChevronUp,
-    Crown,
-    Download,
-    Flame,
-    Folder,
-    Gamepad2,
-    Home,
-    Star,
-    Trophy,
+  BarChart3,
+  ChevronDown,
+  ChevronUp,
+  Crown,
+  Flame,
+  Gamepad2,
+  Home,
+  Star,
+  Trophy,
 } from "lucide-react";
 import { useState, type JSX } from "react";
 
@@ -20,26 +17,21 @@ export default function SiderBar() {
 
   const navigationItems = [
     { icon: Home, label: "Home", href: "/" },
-    { icon: Star, label: "NWG", href: "/reviews" },
+    { icon: Star, label: "NWG", href: "/" },
   ];
 
   const newReleasesItems = [
     { icon: Star, label: "Last 30 days", href: "/new/last-30-days" },
     { icon: Flame, label: "This week", href: "/new/this-week" },
-    { icon: ChevronRight, label: "Next week", href: "/new/next-week" },
   ];
 
   const topItems = [
-    { icon: Trophy, label: "Best of the year", href: "/top/best-year" },
+    { icon: Trophy, label: "Dev Choice", href: "/dev-choice" },
     { icon: BarChart3, label: "Popular in 2024", href: "/top/popular-2024" },
     { icon: Crown, label: "All time top 250", href: "/top/all-time" },
   ];
 
-  const browseItems = [
-    { icon: Gamepad2, label: "Platforms", href: "/browse/platforms" },
-    { icon: Download, label: "Stores", href: "/browse/stores" },
-    { icon: Folder, label: "Collections", href: "/browse/collections" },
-  ];
+  const browseItems = [{}];
 
   const NavItem = ({
     icon: Icon,
@@ -75,7 +67,9 @@ export default function SiderBar() {
       <span className="flex-1">{label}</span>
     </a>
   );
-{/* Comeee Back Later to this.. */}
+  {
+    /* Comeee Back Later to this.. */
+  }
   const SectionHeader = ({
     title,
     isOpen,
@@ -145,8 +139,8 @@ export default function SiderBar() {
           />
           {showBrowse && (
             <div className="space-y-1">
-              {browseItems.map((item) => (
-                <NavItem key={item.label} {...item} isSubItem />
+              {browseItems.map(() => (
+                <></>
               ))}
               <button className="flex items-center gap-3 px-3 py-2 ml-4 rounded-lg text-sm text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors w-full text-left">
                 <ChevronDown size={16} />

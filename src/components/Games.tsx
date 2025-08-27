@@ -1,7 +1,7 @@
 import React from "react";
 import type { cardTypes } from "../types/CardsTypes";
-import GameCard from "../utils/GameCard";
 import Featured from "../utils/Featured";
+import GameCard from "../utils/GameCard";
 
 export default function Games() {
   const [data, setData] = React.useState<cardTypes[]>([]);

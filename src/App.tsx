@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import Api from "./pages/Api";
 import Contributer from "./pages/Contributer";
+import DevChoice from "./pages/DevChoice";
 import Home from "./pages/Home";
 import NWG from "./pages/NWG";
 
@@ -13,7 +14,24 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/nwg.io" element={<NWG setShowDropList={setShowDropList} showDropList={showDropList}/>}/>
+          <Route
+            path="/dev-choice"
+            element={
+              <DevChoice
+                setShowDropList={setShowDropList}
+                showDropList={showDropList}
+              />
+            }
+          />
+          <Route
+            path="/nwg.io"
+            element={
+              <NWG
+                setShowDropList={setShowDropList}
+                showDropList={showDropList}
+              />
+            }
+          />
           <Route
             path="/contributers"
             element={

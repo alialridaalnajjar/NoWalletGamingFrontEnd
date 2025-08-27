@@ -5,13 +5,13 @@ import NWGCard from "../utils/NWGCard";
 
 export default function NWG({ setShowDropList, showDropList }: headerProps) {
   const [guess, setGuess] = React.useState<
-    { title: string; thumbnail: string,  developer: string; }[]
+    { title: string; thumbnail: string; developer: string }[]
   >([]);
   const [currentGame, setCurrentGame] = React.useState<{
     title: string;
     thumbnail: string;
-      developer: string;
-  }>({ title: "", thumbnail: "",developer:"" });
+    developer: string;
+  }>({ title: "", thumbnail: "", developer: "" });
   const [wonStatus, setWonStatus] = React.useState<boolean>(false);
   const [roundEnd, setRoundEnd] = React.useState<boolean>(false);
   const [userGuess, setUserGuess] = React.useState<string>("");
@@ -52,7 +52,6 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
     ) {
       setRoundEnd(true);
       setWonStatus(true);
-      
     } else {
       if (attempts <= 1) {
         setRoundEnd(true);

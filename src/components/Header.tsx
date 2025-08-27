@@ -4,7 +4,9 @@ import DropList from "../utils/DropList";
 
 export default function Header({
   setShowDropList,
-  showDropList,searchTerm,setSearchTerm
+  showDropList,
+  searchTerm,
+  setSearchTerm,
 }: {
   setShowDropList: React.Dispatch<React.SetStateAction<boolean>>;
   showDropList: boolean;
@@ -12,7 +14,7 @@ export default function Header({
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 }) {
   const rightSidedItems = [
-    { name: "NWG.io", path: "/"  },
+    { name: "NWG.io", path: "/nwg.io" },
     { name: "All Games", path: "/" },
     { name: "Contributers", path: "/contributers" },
     { name: "NWG API", path: "/api-docs" },
@@ -21,13 +23,23 @@ export default function Header({
   return (
     <div className="text-white/90 p-3.5 px-5 w-screen lg:w-full fixed top-0 z-70 bg-neutral-900">
       <div className="  z-50 w-1/1 flex flex-row justify-between items-center lg:justify-around ">
-       <Link to="/"> <h1 className="font-extralight text-2xl  Slider">N W G</h1></Link>
-        <div className={`gradient-border-container mt-4 hidden lg:block lg:min-w-1/2  `}>
+        <Link to="/">
+          {" "}
+          <h1
+            className="font-extralight text-2xl  Slider"
+            onClick={() => setShowDropList(false)}
+          >
+            N W G
+          </h1>
+        </Link>
+        <div
+          className={`gradient-border-container mt-4 hidden lg:block lg:min-w-1/2  `}
+        >
           <div className=" mt-4 border-cycle flex flex-row justify-start items-center  gap-2 min-w-1/2 bg-neutral-700 p-1 rounded-xl mx-auto">
             <Search size={20} />
             <input
-               value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               type="text"
               placeholder="Search 512 games"
               className="outline-0 bg-transparent"

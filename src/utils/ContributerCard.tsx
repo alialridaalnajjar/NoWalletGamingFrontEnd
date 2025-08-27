@@ -57,4 +57,4 @@ export default function ContributerCard({
       </div>
     </div>
   );
-}   
+}
