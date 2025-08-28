@@ -1,4 +1,5 @@
 import ALiImg from "../assets/resized-image.jpeg";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import type { contributersType, headerProps } from "../types/CardsTypes";
 import ContributerCard from "../utils/ContributerCard";
@@ -19,6 +20,7 @@ export default function Contributer({
   ];
 
   return (
+    <>
     <div className="bg-neutral-900 min-h-screen">
       <Header
         setShowDropList={setShowDropList}
@@ -41,5 +43,6 @@ export default function Contributer({
         ))}
       </div>
     </div>
+<Footer/></>
   );
 }

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import type { headerProps } from "../types/CardsTypes";
 import NWGCard from "../utils/NWGCard";
+import Footer from "../components/Footer";
 
 export default function NWG({ setShowDropList, showDropList }: headerProps) {
   const [guess, setGuess] = React.useState<
@@ -16,7 +17,6 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
   const [roundEnd, setRoundEnd] = React.useState<boolean>(false);
   const [userGuess, setUserGuess] = React.useState<string>("");
   const [attempts, setAttempts] = React.useState(5);
-  const [loadingGame, setLoadingGame] = React.useState(false);
   const blurrLevels = [
     { level: 5, blurr: `blur-xl` },
     { level: 4, blurr: `blur-lg` },
@@ -29,7 +29,6 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoadingGame(false); 
         const response = await fetch(
           "https://no-wallet-gaming-back-end.vercel.app/"
         );
@@ -37,12 +36,8 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
         setGuess(data);
         const randomIndex = Math.floor(Math.random() * data.length);
         setCurrentGame(data[randomIndex]);
-  
-        setTimeout(() => {
-        }, 1200); 
       } catch (error) {
         console.error("Error fetching data:", error);
-        setLoadingGame(true); 
       }
     };
 
@@ -92,17 +87,13 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
       <div className=" min-h-screen bg-neutral-900 pt-40">
         {currentGame && currentGame.title && (
           <div className="container mx-auto px-4">
-            {loadingGame ? (
-              <NWGCard
-                showGameName={roundEnd}
-                title={currentGame.title}
-                thumbnail={currentGame.thumbnail}
-                studio={currentGame.developer}
-                blur={blurrLevels[5 - attempts].blurr}
-              />
-            ) : (
-              <h1 className="w-full text-center  text-teal-800"> Loading Image Please wait...</h1>
-            )}
+            <NWGCard
+              showGameName={roundEnd}
+              title={currentGame.title}
+              thumbnail={currentGame.thumbnail}
+              studio={currentGame.developer}
+              blur={blurrLevels[5 - attempts].blurr}
+            />
 
             <div className="text-white flex flex-col items-center justify-center gap-3 mt-4">
               <h1>Guess you have {attempts} attempts left!</h1>
@@ -143,6 +134,7 @@ export default function NWG({ setShowDropList, showDropList }: headerProps) {
           </div>
         )}
       </div>
+      <Footer/>
     </>
   );
 }

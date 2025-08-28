@@ -11,6 +11,7 @@ import React from "react";
 import Header from "../components/Header";
 import type { headerProps } from "../types/CardsTypes";
 import ScrollUp from "../utils/ScrollUp";
+import Footer from "../components/Footer";
 
 export default function Api({ showDropList, setShowDropList }: headerProps) {
   const [copiedEndpoint, setCopiedEndpoint] = React.useState<string | null>(
@@ -279,6 +280,7 @@ export default function Api({ showDropList, setShowDropList }: headerProps) {
           </section>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

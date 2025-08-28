@@ -3,6 +3,7 @@ import Games from "../components/Games";
 import NavBar from "../components/NavBar";
 import SiderBar from "../components/SiderBar";
 import ScrollUp from "../utils/ScrollUp";
+import Footer from "../components/Footer";
 export default function Home({
   showDropList,
   setShowDropList,
@@ -19,6 +20,7 @@ export default function Home({
         <SiderBar />
         <Games />
       </div>
+      <Footer/>
     </>
   );
 }

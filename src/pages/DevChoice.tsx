@@ -1,14 +1,17 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import SiderBar from "../components/SiderBar";
 import { devChoiceData } from "../data/DevChoice";
 import type { headerProps } from "../types/CardsTypes";
 import GameCard from "../utils/GameCard";
+import ScrollUp from "../utils/ScrollUp";
 export default function DevChoice({
   setShowDropList,
   showDropList,
 }: headerProps) {
   return (
     <>
+      <ScrollUp />
       <Header
         searchTerm=""
         setSearchTerm={() => ""}
@@ -53,6 +56,7 @@ export default function DevChoice({
           ))}
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

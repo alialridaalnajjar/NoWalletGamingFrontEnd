@@ -14,7 +14,7 @@ export default function Games() {
   }, []);
 
   return (
-    <div className="w-full  h-auto bg-neutral-900 text-white pt-5 flex flex-col lg:pr-6 items-end jusstify-around ">
+    <div className="w-full  h-auto bg-neutral-900 text-white pt-5 flex flex-col lg:pr-6 items-end jusstify-around pl-2 ">
       <Featured />
       <div className="flex flex-row items-center justify-center flex-wrap lg:w-10/11 ">
         {data.map((game) => (
