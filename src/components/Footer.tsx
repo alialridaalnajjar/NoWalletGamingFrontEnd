@@ -1,7 +1,5 @@
-"use client"
-
-import { ChevronUp, Code, Gamepad2, Globe, Heart, Users } from "lucide-react"
-import { useState } from "react"
+import { ChevronUp, Code, Gamepad2, Globe, Heart, Users } from "lucide-react";
+import { useState } from "react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -30,7 +28,7 @@ export default function Footer() {
       icon: Users,
       links: [
         { label: "GitHub", href: "https://github.com/alialridaalnajjar" },
-        { label: "Discord", href: "https://discord.com" },
+        { label: "Discord", href: "https://discord.com/users/751674544850468936" },
       ],
     },
   }

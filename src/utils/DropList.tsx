@@ -1,5 +1,3 @@
-import type React from "react";
-
 import {
   ChevronDown,
   ChevronRight,
@@ -7,8 +5,9 @@ import {
   Globe,
   Home,
   MoreHorizontal,
-  Users,
-} from "lucide-react";
+  Users, Webhook
+} from 'lucide-react';
+import type React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ExpandedDropList from "../components/ExpandedDropList";
@@ -26,7 +25,7 @@ export default function DropList({
       { label: "NWG.io", icon: Gamepad2, link: "/nwg.io" },
       { label: "All Games", icon: Globe, link: "/" },
       { label: "Contributors", icon: Users, link: "/contributers" },
-      { label: "NWG API", icon: MoreHorizontal, link: "/api-docs" },
+      { label: "NWG API", icon: Webhook, link: "/api-docs" },
     ];
 
   return (

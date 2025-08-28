@@ -2,7 +2,6 @@ import {
   BarChart3,
   ChevronDown,
   ChevronUp,
-  Crown,
   Flame,
   Gamepad2,
   Home,
@@ -21,14 +20,13 @@ export default function SiderBar() {
   ];
 
   const newReleasesItems = [
-    { icon: Star, label: "Last 30 days", href: "/new/last-30-days" },
-    { icon: Flame, label: "This week", href: "/new/this-week" },
+    { icon: Star, label: "F2P", href: "/" },
+    { icon: Flame, label: "All Time", href: "/" },
   ];
 
   const topItems = [
     { icon: Trophy, label: "Dev Choice", href: "/dev-choice" },
-    { icon: BarChart3, label: "Popular in 2024", href: "/top/popular-2024" },
-    { icon: Crown, label: "All time top 250", href: "/top/all-time" },
+    { icon: BarChart3, label: "Popular in 2024", href: "/dev-choice" },
   ];
 
   const browseItems = [{}];
@@ -128,7 +126,7 @@ export default function SiderBar() {
         </div>
 
         <div>
-          <NavItem icon={Gamepad2} label="All Games" href="/games" />
+          <NavItem icon={Gamepad2} label="All Games" href="/" />
         </div>
 
         <div>
@@ -144,7 +142,7 @@ export default function SiderBar() {
               ))}
               <button className="flex items-center gap-3 px-3 py-2 ml-4 rounded-lg text-sm text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors w-full text-left">
                 <ChevronDown size={16} />
-                <span>Show all</span>
+                <span>Coming Soon</span>
               </button>
             </div>
           )}

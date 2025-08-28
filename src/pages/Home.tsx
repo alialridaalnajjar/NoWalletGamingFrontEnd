@@ -14,7 +14,7 @@ export default function Home({
   return (
     <>
       <ScrollUp />
-      <div className="bg-neutral-900 h-screen">
+      <div className="bg-neutral-900 h-auto  min-h-screen">
         <NavBar setShowDropList={setShowDropList} showDropList={showDropList} />
 
         <SiderBar />
